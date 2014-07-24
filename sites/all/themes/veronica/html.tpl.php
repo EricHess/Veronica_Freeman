@@ -2,39 +2,39 @@
 
 /**
  * @file
- * Default theme implementation to display the basic html structure of a single
- * Drupal page.
+ * default theme implementation to display the basic html structure of a single
+ * drupal page.
  *
- * Variables:
- * - $css: An array of CSS files for the current page.
- * - $language: (object) The language the site is being displayed in.
+ * variables:
+ * - $css: an array of css files for the current page.
+ * - $language: (object) the language the site is being displayed in.
  *   $language->language contains its textual representation.
- *   $language->dir contains the language direction. It will either be 'ltr' or 'rtl'.
- * - $rdf_namespaces: All the RDF namespace prefixes used in the HTML document.
- * - $grddl_profile: A GRDDL profile allowing agents to extract the RDF data.
- * - $head_title: A modified version of the page title, for use in the TITLE
+ *   $language->dir contains the language direction. it will either be 'ltr' or 'rtl'.
+ * - $rdf_namespaces: all the rdf namespace prefixes used in the html document.
+ * - $grddl_profile: a grddl profile allowing agents to extract the rdf data.
+ * - $head_title: a modified version of the page title, for use in the title
  *   tag.
- * - $head_title_array: (array) An associative array containing the string parts
+ * - $head_title_array: (array) an associative array containing the string parts
  *   that were used to generate the $head_title variable, already prepared to be
- *   output as TITLE tag. The key/value pairs may contain one or more of the
+ *   output as title tag. the key/value pairs may contain one or more of the
  *   following, depending on conditions:
- *   - title: The title of the current page, if any.
- *   - name: The name of the site.
- *   - slogan: The slogan of the site, if any, and if there is no title.
- * - $head: Markup for the HEAD section (including meta tags, keyword tags, and
+ *   - title: the title of the current page, if any.
+ *   - name: the name of the site.
+ *   - slogan: the slogan of the site, if any, and if there is no title.
+ * - $head: markup for the head section (including meta tags, keyword tags, and
  *   so on).
- * - $styles: Style tags necessary to import all CSS files for the page.
- * - $scripts: Script tags necessary to load the JavaScript files and settings
+ * - $styles: style tags necessary to import all css files for the page.
+ * - $scripts: script tags necessary to load the javascript files and settings
  *   for the page.
- * - $page_top: Initial markup from any modules that have altered the
- *   page. This variable should always be output first, before all other dynamic
+ * - $page_top: initial markup from any modules that have altered the
+ *   page. this variable should always be output first, before all other dynamic
  *   content.
- * - $page: The rendered page content.
- * - $page_bottom: Final closing markup from any modules that have altered the
- *   page. This variable should always be output last, after all other dynamic
+ * - $page: the rendered page content.
+ * - $page_bottom: final closing markup from any modules that have altered the
+ *   page. this variable should always be output last, after all other dynamic
  *   content.
- * - $classes String of classes that can be used to style contextually through
- *   CSS.
+ * - $classes string of classes that can be used to style contextually through
+ *   css.
  *
  * @see template_preprocess()
  * @see template_preprocess_html()
@@ -42,20 +42,19 @@
  *
  * @ingroup themeable
  */
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
-  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
+?><!doctype html public "-//w3c//dtd xhtml+rdfa 1.0//en"
+  "http://www.w3.org/markup/dtd/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="xhtml+rdfa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+    <script src="http://code.jquery.com/jquery-latest.js" ></script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <div id="skip-link">
-    <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-  </div>
+
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
