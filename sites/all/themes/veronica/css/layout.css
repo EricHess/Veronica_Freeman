@@ -45,11 +45,97 @@ table {
     border-spacing: 0;
 }
 
+.lft{
+    float:left
+}
+
+.clr{
+    clear:both
+}
+
+body{background:black; color:#fff}
+
+/*
+HEADER STYLES
+*/
+
+#block-system-main-menu h2{
+    display:none;
+}
+
+/*
+NAVIGATION STYLES
+*/
+
+.topPortion{
+    padding-bottom: 20px;
+}
+
+#block-system-main-menu .leaf{
+    list-style:none;
+    float:left;
+}
+
+.leaf a{
+    text-decoration: none;
+    color: #fff;
+    font-size:110%;
+    padding:5px;
+    border-radius:7px;
+}
+
+nav.mainmenu{
+    margin: 0 auto;
+    width: 375px;
+}
+
+.leaf a.active{
+    background:#ff0000;
+}
+
+
 /*
 SLIDE SHOW STYLES
 */
-body{display:none;}
-
 .bx-controls{
     display:none
+}
+
+section.topContent{
+    position:relative;
+}
+
+.slideThumbs{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.slideThumbs aside.slide{
+    padding: 0px 10px;
+}
+
+.slideThumbs a img{
+    height:100px;
+    width:100px;
+}
+
+/*
+SECOND TIER AREA
+*/
+
+.secondTier{
+    width:100%;
+    margin: 0 auto;
+    margin-top: -120px;
+    position: relative;
+}
+
+.secondTier article{
+    width: 27%;
+    float: left;
+    background: green;
+    margin: 2.3%;
+    padding: .5%;
+    min-height: 150px;
 }

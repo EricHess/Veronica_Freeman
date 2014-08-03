@@ -60,21 +60,19 @@ $slideNodes = node_load_multiple($slideNodes);
 
     <img class="VLogo" src="#" />
     <nav class="mainmenu">
-        <!-- print out main menu -->
         <?php print render($page['header']);?>
+        <div class="clr"></div>
     </nav>
 
 </header>
 
-<section class="topContent"><pre style="display:none">
-<?php print_r($slideNodes); ?>
-        </pre>
+<section class="topContent">
 
     <article class="sliderContainer">
         <?php
         foreach ($slideNodes as $slides){
             $realUrl = image_style_url("slideshow",$slides->field_image_for_slideshow['und']['0']['uri']);
-
+            //todo: add in alt and title tags
             echo '<aside class="slide">';
                 echo '<img style="width:100%;" src = "'.$realUrl.'" />';
             echo '</aside>';
@@ -86,9 +84,9 @@ $slideNodes = node_load_multiple($slideNodes);
         <?php
         $slideIndex = 0;
         foreach ($slideNodes as $slides){
-            $thumbUrl = image_style_url("thumbnail",$slides->field_image_for_slideshow['und']['0']['uri']);
+            $thumbUrl = image_style_url("slide_thumbs",$slides->field_image_for_slideshow['und']['0']['uri']);
 
-            echo '<aside class="slide">';
+            echo '<aside class="slide lft">';
             echo '<a data-slide-index="'.$slideIndex.'" href=""><img src = "'.$thumbUrl.'" /></a>';
             echo '</aside>';
             $slideIndex++;
@@ -103,6 +101,7 @@ $slideNodes = node_load_multiple($slideNodes);
     <article class="">news</article>
     <article class="">music</article>
     <article class="">video</article>
+    <div class="clr"></div>
 </section>
 
 <article class="homePageText">
