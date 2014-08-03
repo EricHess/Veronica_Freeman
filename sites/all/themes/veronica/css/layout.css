@@ -44,3 +44,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/*
+SLIDE SHOW STYLES
+*/
+body{display:none;}
+
+.bx-controls{
+    display:none
+}
