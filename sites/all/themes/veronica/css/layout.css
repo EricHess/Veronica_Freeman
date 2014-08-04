@@ -116,8 +116,8 @@ section.topContent{
 }
 
 .slideThumbs a img{
-    height:100px;
-    width:100px;
+    height:80px;
+    width:80px;
 }
 
 /*
@@ -136,6 +136,43 @@ SECOND TIER AREA
     float: left;
     background: green;
     margin: 2.3%;
-    padding: .5%;
+    padding: .86%;
     min-height: 150px;
+}
+
+
+/*
+HOME PAGE TEXT
+*/
+
+.homePageText{
+    width: 90%;
+    padding: 0% 5% 2% 5%;
+}
+
+/*
+SOCIAL BOXES
+*/
+
+.socialBoxes article{
+    float: left;
+    background: red;
+    width: 49%;
+    margin-left: 1%;
+    min-height: 85px;
+}
+
+.socialBoxes article.facebook{
+    margin-right:1%;
+    width:48%;
+}
+
+/*
+FOOTER
+*/
+
+.copyright{
+    clear: both;
+    padding-top: 2%;
+    margin-left: 1%;
 }
