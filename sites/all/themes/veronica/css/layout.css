@@ -63,12 +63,19 @@ HEADER STYLES
     display:none;
 }
 
+.logo{
+    font-size: 1400%;
+    position: absolute;
+    z-index: 99;
+    top: -10px;
+}
+
 /*
 NAVIGATION STYLES
 */
 
 .topPortion{
-    padding-bottom: 20px;
+    padding: 30px 10px;
 }
 
 #block-system-main-menu .leaf{

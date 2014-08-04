@@ -58,7 +58,7 @@ $slideNodes = node_load_multiple($slideNodes);
 
 <header class="topPortion">
 
-    <img class="VLogo" src="#" />
+    <div class="logo">V</div>
     <nav class="mainmenu">
         <?php print render($page['header']);?>
         <div class="clr"></div>
