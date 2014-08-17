@@ -21,6 +21,8 @@ $albums = db_select('node', 'n')
 #NODE LOAD THOSE IDS THAT WERE GRABBED ABOVE
 $albums = node_load_multiple($albums);
 
+//TODO: FILTER BASED ON WHICH IS CLICKED (JS)
+
 ?>
 
 <header class="topPortion">
@@ -53,21 +55,27 @@ $albums = node_load_multiple($albums);
 ?>
 </nav>
 
-<?php
-//TODO:
-//TODO: FILL APPROPRIATE DIVS WITH SONGS FROM EACH ALBUM
-//TODO: FILTER BASED ON WHICH IS CLICKED (JS)
-
-?>
-
 <div class="songListings">
-<pre>
     <?php
-    foreach($songsNodes as $songs){
-     print_r($songs);
-    };
 
+    foreach($albums as $album){
+        $albumNodeID = $album->nid;
+        $albumTitle = $album->title;
+
+        echo '<article class="albumContainer" data-album-name="'.$albumTitle.'">';
+
+
+        foreach($songsNodes as $song){
+            $songTitle = $song->title;
+            $songTargetID = $song->field_album['und']['0']['target_id'];
+            if($songTargetID == $albumNodeID){
+                echo $songTitle;
+            }
+        }
+
+        echo '</article>';
+
+    }
 
     ?>
-
-        </div>
+</div>
