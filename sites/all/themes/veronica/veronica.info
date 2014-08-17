@@ -7,6 +7,7 @@ stylesheets[screen][] = layout.css
 regions[content] = Content
 regions[help] = Help
 regions[header] = header
+regions[heroes] = Interior Page Hero
 regions[page_bottom] = Page bottom
 regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar

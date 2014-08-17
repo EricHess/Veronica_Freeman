@@ -12,4 +12,4 @@ $videosNodes = node_load_multiple($videosNodes);
 
 ?>
 
-THIS IS THE SONGS AND MUSIC PAGES
+THIS IS THE VIDEOS PAGE
