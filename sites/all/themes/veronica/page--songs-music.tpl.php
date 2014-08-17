@@ -35,22 +35,39 @@ $albums = node_load_multiple($albums);
 
 </header>
 
+<h3>Select Your Album:</h3>
 <nav class="albumNavigation">
 <?php
-
     foreach($albums as $album){
 
         //GET NODE IDS
         $nid = $album->field_cover_art['und']['0']['target_id'];
         $node = node_load($nid);
         $thumbUrl = image_style_url("slide_thumbs",$node->field_album_cover['und']['0']['uri']);
+        $albumName = $album->title;
         echo '<div class="albumCovers">';
-        echo '<img src="'.$thumbUrl.'" /> <br />';
-        echo $album->title;
+        echo '<img src="'.$thumbUrl.'" data-album-name="'.strtolower(str_replace(' ', '', $albumName)).'"/> <br />';
+        echo $albumName;
         echo '</div>';
-
     }
 ?>
 </nav>
 
-THIS IS THE SONGS AND MUSIC PAGES
+<?php
+//TODO:
+//TODO: FILL APPROPRIATE DIVS WITH SONGS FROM EACH ALBUM
+//TODO: FILTER BASED ON WHICH IS CLICKED (JS)
+
+?>
+
+<div class="songListings">
+<pre>
+    <?php
+    foreach($songsNodes as $songs){
+     print_r($songs);
+    };
+
+
+    ?>
+
+        </div>
