@@ -73,6 +73,10 @@ HEADER STYLES
 /*
 NAVIGATION STYLES
 */
+.heroImage{
+    position: relative;
+    top: 20px;
+}
 
 .topPortion{
     padding: 30px 10px;
@@ -182,4 +186,60 @@ FOOTER
     clear: both;
     padding-top: 2%;
     margin-left: 1%;
+}
+
+
+/*********************PHOTO GALLERY*************************/
+.content{position:relative}
+h2.pageTitles{
+    position: absolute;
+    top: -77px;
+    font-size: 60px;
+    left: 25px;
+}
+
+.topInformation, .contentContainer{
+    padding:20px;
+    position:relative;
+}
+
+.contentContainer h4{
+    font-size:20px;
+}
+
+article.photoGallery{
+    padding: 10px;
+    float: left;
+    border: 3px solid #fff;
+    min-height: 200px;
+    margin: 0px 10px;
+}
+
+article.photoGallery:hover{
+    border:3px solid #FF0000;
+    cursor:pointer;
+}
+
+/**********************Interior Photo Gallery*****************************/
+.backToGalleryList{
+    position: absolute;
+    right: 20px;
+    top: -41px;
+}
+
+.backToGalleryList a{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.galleryImages{
+    border: 3px solid #ffffff;
+    display: block;
+    float: left;
+    margin: 10px;
+}
+
+.galleryImages:hover{
+    border:3px solid #ff0000;
 }

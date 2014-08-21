@@ -33,8 +33,7 @@ $albums = node_load_multiple($albums);
         <div class="clr"></div>
     </nav>
 
-    <header class="heroImage" style="height:250px;"></header>
-
+    <header class="heroImage" style="height:300px;background:url('sites/all/themes/veronica/images/01_rs.jpg');"></header>
 </header>
 
 <h3>Select Your Album:</h3>
@@ -69,6 +68,7 @@ $albums = node_load_multiple($albums);
             $songTitle = $song->title;
             $songTargetID = $song->field_album['und']['0']['target_id'];
             if($songTargetID == $albumNodeID){
+                //TODO: figure out sound cloud
                 echo $songTitle;
             }
         }

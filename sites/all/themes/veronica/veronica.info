@@ -8,6 +8,7 @@ regions[content] = Content
 regions[help] = Help
 regions[header] = header
 regions[heroes] = Interior Page Hero
+regions[description] = Interior Page Description Blocks
 regions[page_bottom] = Page bottom
 regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar

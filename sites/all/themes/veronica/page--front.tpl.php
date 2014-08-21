@@ -70,6 +70,7 @@ $slideNodes = node_load_multiple($slideNodes);
 
     <article class="sliderContainer">
         <?php
+
         foreach ($slideNodes as $slides){
             $realUrl = image_style_url("slideshow",$slides->field_image_for_slideshow['und']['0']['uri']);
             //todo: add in alt and title tags

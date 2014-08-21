@@ -22,28 +22,33 @@ $galleries = node_load_multiple($galleries);
     <div class="logo">V</div>
     <nav class="mainmenu">
         <?php print render($page['header']);?>
+
         <div class="clr"></div>
     </nav>
 
-    <header class="heroImage" style="height:250px;"></header>
+    <header class="heroImage" style="height:300px;background:url('sites/all/themes/veronica/images/01_rs.jpg');"></header>
 
 </header>
 
-<?php
+<section class="contentContainer">
+<nav class="backToGalleryList">
+    <a href="/photos">< Back to gallery list</a>
+</nav>
 
+<?php
+echo '<h2 class="pageTitles">'.$galleryName.'</h2>';
 foreach($galleries as $gallery){
     $galleryTitle = $gallery->title;
 
     if($galleryTitle == $galleryName){
-        //TODO: Change the image style so they're larger
-        //TODO: print out the image thumbs with links around them
         //TODO: shadowbox the larger images
-        //TODO: put in a "back to gallery list" link
         foreach($gallery->field_photos_for_gallery['und'] as $albumImage){
             $imageTarget = $albumImage['target_id'];
             $picture = node_load($imageTarget);
-            $thumbUrl = image_style_url("slide_thumbs",$picture->field_photo['und']['0']['uri']);
-            echo '<a href="'.file_create_url($picture->field_photo['und']['0']['uri']).'" rel="shadowbox"> <img src="'.$thumbUrl.'" /></a>';
+            $thumbUrl = image_style_url("medium",$picture->field_photo['und']['0']['uri']);
+            echo '<article class="galleryImageContainer">';
+            echo '<a class="galleryImages" href="'.file_create_url($picture->field_photo['und']['0']['uri']).'" rel="shadowbox"> <img src="'.$thumbUrl.'" /></a>';
+            echo '</article>';
         }
     }
 }
@@ -51,3 +56,4 @@ foreach($galleries as $gallery){
 
 ?>
 
+</section>
