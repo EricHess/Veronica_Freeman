@@ -100,7 +100,7 @@ $slideNodes = node_load_multiple($slideNodes);
 
 <section class="secondTier">
     <article class="news">
-        <h3>news</h3>
+        <h3>Featured News</h3>
         <?php
         foreach($newsNodes as $newsItems){
             if($newsItems->field_promote_to_front_page_['und']['0']['value'] == 1){
@@ -114,8 +114,34 @@ $slideNodes = node_load_multiple($slideNodes);
         ?>
 
     </article>
-    <article class="">music</article>
-    <article class="">video</article>
+    <article class="">
+        <h3>Featured Music</h3>
+        <?php
+        foreach($newsNodes as $newsItems){
+            if($newsItems->field_promote_to_front_page_['und']['0']['value'] == 1){
+                $title=$newsItems->title;
+                $body=$newsItems->body['und']['0']['value'];
+                $body=substr($body,0,125);
+                echo '<h4>'.$title.'</h4>';
+                echo '<p>'.$body.'... <br /><a href="/news">Read More News</a></p>';
+            }
+        }
+        ?>
+    </article>
+    <article class="">
+        <h3>Featured Video</h3>
+        <?php
+        foreach($newsNodes as $newsItems){
+            if($newsItems->field_promote_to_front_page_['und']['0']['value'] == 1){
+                $title=$newsItems->title;
+                $body=$newsItems->body['und']['0']['value'];
+                $body=substr($body,0,125);
+                echo '<h4>'.$title.'</h4>';
+                echo '<p>'.$body.'... <br /><a href="/news">Read More News</a></p>';
+            }
+        }
+        ?>
+    </article>
     <div class="clr"></div>
 </section>
 

@@ -54,7 +54,7 @@
     <script src="http://code.jquery.com/jquery-latest.js" ></script>
     <link href="sites/all/themes/veronica/css/layout.css" rel="stylesheet" />
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body class="<?php print $classes; ?>" <?php print $attributes;?> id="override">
 
   <?php print $page_top; ?>
   <?php print $page; ?>

@@ -9,6 +9,9 @@ $videosNodes = db_select('node', 'n')
 
 #NODE LOAD THOSE IDS THAT WERE GRABBED ABOVE
 $videosNodes = node_load_multiple($videosNodes);
+
+$videoInformation = module_invoke('block', 'block_view', '4');
+
 ?>
 
 
@@ -24,7 +27,14 @@ $videosNodes = node_load_multiple($videosNodes);
     </header>
 
 <section class="contentContainer">
-<?php    echo '<h2 class="pageTitles">'.$node->title.'</h2>'; ?>
+<?php    echo '<h2 class="pageTitles">'.$node->title.'</h2>';
+
+echo '<article class="topInformation songsInformation">';
+
+print render($videoInformation['content']);
+
+echo '</article>';
+?>
 
 
 
@@ -32,13 +42,23 @@ $videosNodes = node_load_multiple($videosNodes);
 echo '<div class="videosContainer">';
 
 foreach($videosNodes as $videos){
-    $youtubeUrl = $videos->youtubeId['und']['0']['value'];
-    echo '<div data-youtube-name="'.$videos->title.'" class="">';
+    if($videos->nid != 11){
+    $youtubeUrl = $videos->field_youtube_id['und']['0']['value'];
+    echo '<div data-youtube-name="'.$videos->title.'" class="individualVideos">';
         echo '<h3>'.$videos->title.'</h3>';
-        echo 'embed code from youtube the id is:'.$youtubeUrl;
+        echo '<iframe width="420" height="315" src="//www.youtube.com/embed/'.$youtubeUrl.'?rel=0" frameborder="0" allowfullscreen></iframe>';
     echo '</div>';
+    }
 }
 
-echo '</div>';
+echo '<div class="clr"></div></div>';
+
+?>
+
+
+    <footer>
+        COPYRIGHT HERE
+    </footer>
+
 
 

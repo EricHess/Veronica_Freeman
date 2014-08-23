@@ -12,7 +12,7 @@ $songsNodes = db_select('node', 'n')
 
 #NODE LOAD THOSE IDS THAT WERE GRABBED ABOVE
 $songsNodes = node_load_multiple($songsNodes);
-
+$musicInformation = module_invoke('block', 'block_view', '3');
 #QUERY DATABASE FOR NODE IDS OF THE ITEMS IN NEWS ITEMS CONTENT TYPE
 $albums = db_select('node', 'n')
     ->fields('n', array('nid'))
@@ -39,8 +39,19 @@ $albums = node_load_multiple($albums);
     <header class="heroImage" style="height:300px;background:url('sites/all/themes/veronica/images/01_rs.jpg');"></header>
 </header>
 
+
 <section class="contentContainer">
-<?php    echo '<h2 class="pageTitles">'.$node->title.'</h2>'; ?>
+<?php    echo '<h2 class="pageTitles">'.$node->title.'</h2>';
+
+echo '<article class="topInformation songsInformation">';
+
+print render($musicInformation['content']);
+
+echo '</article>';
+
+
+?>
+
 
 
 <h3>Select Your Album:</h3>

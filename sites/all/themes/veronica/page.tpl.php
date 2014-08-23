@@ -1,4 +1,7 @@
-
+<?php
+$newsInformation = module_invoke('block', 'block_view', '5');
+$genericPageTitle = end(explode('/', $_SERVER['REQUEST_URI']));
+?>
 <header class="topPortion">
 
     <div class="logo">V</div>
@@ -11,10 +14,13 @@
 </header>
 <section class="contentContainer">
     <?php
-    $genericPageTitle = end(explode('/', $_SERVER['REQUEST_URI']));
+
     echo '<h2 class="pageTitles">'.$genericPageTitle.'</h2>'; ?>
 <?php
-print render($page['content']);
+    if($genericPageTitle == 'contact'){
+        print render($newsInformation['content']);
+    }
+    print render($page['content']);
 
 ?>
 </section>
