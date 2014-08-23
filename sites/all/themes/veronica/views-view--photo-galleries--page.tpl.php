@@ -6,7 +6,7 @@ $galleryInformation = module_invoke('block', 'block_view', '1');
 
 //TODO: CHANGE THE IMAGE STYLE TO SOMETHING LARGER
 
-echo '<h2 class="pageTitles">'.$pageTitle.'</h2>';
+
 echo '<article class="topInformation galleryInformation">';
 
 print render($galleryInformation['content']);

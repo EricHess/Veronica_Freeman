@@ -196,6 +196,7 @@ h2.pageTitles{
     top: -77px;
     font-size: 60px;
     left: 25px;
+    text-transform:capitalize;
 }
 
 .topInformation, .contentContainer{
@@ -242,4 +243,31 @@ article.photoGallery:hover{
 
 .galleryImages:hover{
     border:3px solid #ff0000;
+}
+
+/**********************SONGS AND MUSIC PAGE****************************/
+.albumCovers{
+    float:left;
+    margin:20px;
+    width: 120px;
+    text-align: center;
+    cursor:pointer;
+    border: 3px solid #000;
+}
+
+.albumCovers:first-child{
+    margin-left:0px;
+}
+
+
+h3{
+    font-size:18px;
+}
+
+.albumContainer{
+    display:none;
+}
+
+.albumContainer h3{
+    margin-bottom:10px;
 }
