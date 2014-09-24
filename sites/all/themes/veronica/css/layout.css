@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import "fonts/stylesheet.css";
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,6 +47,20 @@ table {
     border-spacing: 0;
 }
 
+
+@font-face {
+    font-family: 'report';
+    src: url('fonts/1942-webfont.eot');
+    src: url('fonts/1942-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/1942-webfont.woff2') format('woff2'),
+    url('fonts/1942-webfont.woff') format('woff'),
+    url('fonts/1942-webfont.ttf') format('truetype'),
+    url('fonts/1942-webfont.svg#1942_report1942_report') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .lft{
     float:left
 }
@@ -53,7 +69,15 @@ table {
     clear:both
 }
 
-body{background:black; color:#fff}
+body{
+    background:black;
+    color:#fff;
+    font-family:'alegreya_sans_scmedium';
+}
+
+h1,h2,h3,h4,h5{
+    font-family:'report';
+}
 
 /*
 HEADER STYLES
@@ -97,7 +121,7 @@ NAVIGATION STYLES
 
 nav.mainmenu{
     margin: 0 auto;
-    width: 440px;
+    width: 520px;
 }
 
 .leaf a.active{
@@ -145,10 +169,13 @@ SECOND TIER AREA
 .secondTier article{
     width: 27%;
     float: left;
-    background: green;
+    background: #FEE8D6;
     margin: 2.3%;
     padding: .86%;
     min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 7px #222;
+    color: #000;
 }
 
 
@@ -261,7 +288,7 @@ article.photoGallery:hover{
 
 
 h3{
-    font-size:18px;
+    font-size:30px;
 }
 
 .albumContainer{
@@ -296,7 +323,7 @@ h3{
 }
 
 .newsDate{
-    font-size: 12px;
+    font-size: 15px;
     color: #999;
 }
 
@@ -307,4 +334,20 @@ h3{
 
 .submitted{
     display:none;
+}
+
+/*****LINKS PAGE *****/
+.singleLink{
+    border-top:1px solid #fff;
+    padding:20px 0px;
+}
+
+.singleLink.even .logoImage{
+    float:right;
+    margin-left:20px;
+}
+
+.singleLink.odd .logoImage{
+    float:left;
+    margin-right:20px;
 }

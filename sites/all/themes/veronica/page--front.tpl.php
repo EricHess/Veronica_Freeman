@@ -123,7 +123,7 @@ $slideNodes = node_load_multiple($slideNodes);
                 $body=$newsItems->body['und']['0']['value'];
                 $body=substr($body,0,125);
                 echo '<h4>'.$title.'</h4>';
-                echo '<p>'.$body.'... <br /><a href="/news">Read More News</a></p>';
+                echo '<p>'.$body.'... <br /><a href="/music">Listen To More</a></p>';
             }
         }
         ?>
@@ -137,7 +137,7 @@ $slideNodes = node_load_multiple($slideNodes);
                 $body=$newsItems->body['und']['0']['value'];
                 $body=substr($body,0,125);
                 echo '<h4>'.$title.'</h4>';
-                echo '<p>'.$body.'... <br /><a href="/news">Read More News</a></p>';
+                echo '<p>'.$body.'... <br /><a href="/videos">Watch More Videos</a></p>';
             }
         }
         ?>
