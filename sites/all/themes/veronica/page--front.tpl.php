@@ -9,6 +9,28 @@
     })
 </script>
 <?php
+#TWITTER
+ini_set('display_errors', 1);
+require_once('TwitterAPIExchange.php');
+
+/** Set access tokens here - see: https://dev.twitter.com/apps/ **/
+$settings = array(
+    'oauth_access_token' => "109027257-wO2G7ijI5nXIiiqDQqr7XaaeeZy3qTh99K2Fvzmn",
+    'oauth_access_token_secret' => "YuFRB7X7P7WggOoNbICEgPQyHzzz0bYLPNAT3bYxszJMC",
+    'consumer_key' => "OD7y1BSSObaBgM6tivRVzakAV",
+    'consumer_secret' => "y1Cng300rDPUNMqG5gxgnPi4Jzo3b1LPP9Rtd3ZxX5wUgrZIgG"
+);
+
+/** Perform a GET request and echo the response **/
+/** Note: Set the GET field BEFORE calling buildOauth(); **/
+$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
+$getfield = '?user_timeline.json?count=20';
+$requestMethod = 'GET';
+$twitter = new TwitterAPIExchange($settings);
+$feed = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest());
+
+print_r($feed);
+
 #QUERY DATABASE FOR NODE IDS OF THE ITEMS IN NEWS ITEMS CONTENT TYPE
 $newsNodes = db_select('node', 'n')
 ->fields('n', array('nid'))
@@ -154,6 +176,8 @@ $slideNodes = node_load_multiple($slideNodes);
     <article class="facebook">FB POSTS HERE</article>
 </section>
 
+
+
 <footer class="copyright">
-    COPYRIGHT HERE
+    &copy; <?php echo date("Y") ?>
 </footer>

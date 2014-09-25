@@ -106,6 +106,6 @@ echo '</article>';
 
     </section>
 
-<footer>
-    COPYRIGHT HERE
+<footer class="copyright">
+    &copy; <?php echo date("Y") ?>
 </footer>

@@ -56,8 +56,8 @@ echo '<div class="clr"></div></div>';
 ?>
 
 
-    <footer>
-        COPYRIGHT HERE
+    <footer class="copyright">
+        &copy; <?php echo date("Y") ?>
     </footer>
 
 

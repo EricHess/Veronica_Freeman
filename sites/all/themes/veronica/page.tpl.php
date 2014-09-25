@@ -24,6 +24,6 @@ $genericPageTitle = end(explode('/', $_SERVER['REQUEST_URI']));
 
 ?>
 </section>
-<footer>
-COPYRIGHT HERE
+<footer class="copyright">
+    &copy; <?php echo date("Y") ?>
 </footer>
