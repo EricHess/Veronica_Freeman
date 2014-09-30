@@ -15,21 +15,23 @@ require_once('TwitterAPIExchange.php');
 
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 $settings = array(
-    'oauth_access_token' => "109027257-wO2G7ijI5nXIiiqDQqr7XaaeeZy3qTh99K2Fvzmn",
-    'oauth_access_token_secret' => "YuFRB7X7P7WggOoNbICEgPQyHzzz0bYLPNAT3bYxszJMC",
-    'consumer_key' => "OD7y1BSSObaBgM6tivRVzakAV",
-    'consumer_secret' => "y1Cng300rDPUNMqG5gxgnPi4Jzo3b1LPP9Rtd3ZxX5wUgrZIgG"
+    'oauth_access_token' => "2319891966-qRCiNJtWQN9Aq7tR8VmBPKngyjMTyEdWiNlTgzo",
+    'oauth_access_token_secret' => "1MCxJaavihQ1tkIdntGWuzZSWP9QTWa0daLFOcjdB56Qo",
+    'consumer_key' => "N7U1TpDfVuJ3G6q7A5dfQeXhP",
+    'consumer_secret' => "dFhRSef2Te47IUlP16bEpqB91oTL5npHCXMo3i1AKAi2IYDadZ"
 );
 
 /** Perform a GET request and echo the response **/
 /** Note: Set the GET field BEFORE calling buildOauth(); **/
-$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-$getfield = '?user_timeline.json?count=20';
+$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+$getfield = '?screen_name=therealvfreeman&count=3';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $feed = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest());
 
-print_r($feed);
+#FACEBOOK
+
+
 
 #QUERY DATABASE FOR NODE IDS OF THE ITEMS IN NEWS ITEMS CONTENT TYPE
 $newsNodes = db_select('node', 'n')
@@ -77,6 +79,39 @@ $slideNodes = node_load_multiple($slideNodes);
 
 
 ?>
+
+<!-- FACEBOOK -->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '299061543615017',
+            xfbml      : true,
+            version    : 'v2.1'
+        });
+
+        /* make the API call */
+        var access_token = "299061543615017|-s_rnSm7WPRma8HbZ4rJzhvfthk";
+        FB.api(
+            "/274005086111131/feed?access_token="+access_token,
+            function (response) {
+                if (response && !response.error) {
+                    console.log(response);
+                }
+            }
+        );
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
 
 <header class="topPortion">
 
@@ -172,8 +207,29 @@ $slideNodes = node_load_multiple($slideNodes);
 </article>
 
 <section class="socialBoxes">
-    <article class="twitter">TWEETS HERE</article>
-    <article class="facebook">FB POSTS HERE</article>
+    <article class="twitter">
+        <img src="<?php echo $feed['0']->user->profile_image_url; ?>" />
+        <h4 style="padding-top:25px">Twitter @TheRealVFreeman</h4>
+        <?php
+
+
+        foreach($feed as $tweets){
+            $tweetText = $tweets->text;
+            $linkText = $tweets->entities->urls['0']->url;
+            $startPoint = $tweets->entities->urls['0']->indices['0'];
+            $endPoint = $tweets->entities->urls['0']->indices['1'];
+            $tweetText = substr_replace($tweetText, '<a href="'.$linkText.'">'.$linkText.'</a>', $startPoint, $endPoint);
+
+
+
+            echo '<aside class="clr tweetContain">';
+            echo $tweetText;
+            echo '</aside>';
+        }
+
+        ?>
+    </article>
+<!--    <article class="facebook">FB POSTS HERE</article>-->
 </section>
 
 

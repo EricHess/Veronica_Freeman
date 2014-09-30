@@ -47,6 +47,10 @@ table {
     border-spacing: 0;
 }
 
+a{
+    text-decoration:none;
+}
+
 
 @font-face {
     font-family: 'report';
@@ -194,15 +198,25 @@ SOCIAL BOXES
 
 .socialBoxes article{
     float: left;
-    background: red;
-    width: 49%;
+    width: 98%;
     margin-left: 1%;
     min-height: 85px;
+    border: 1px solid #999;
+    box-shadow: 0px 0px 2px #fff;
 }
 
 .socialBoxes article.facebook{
     margin-right:1%;
     width:48%;
+}
+
+.socialBoxes article aside{
+    padding:10px;
+}
+
+.socialBoxes img{
+    padding:10px;
+    float:left;
 }
 
 /*
